@@ -4,8 +4,8 @@ use std::rc::Rc;
 use std::time::Instant;
 
 const RANGE: u64 = 1_000_000_000;
-const SZ_PAGE_BTS: u64 = (1 << 14) * 8; // this should be the size of the CPU L1 cache
-const SZ_BASE_BTS: u64 = (1 << 7) * 8;
+const SZ_PAGE_BTS: u64 = (1 << 16) * 8; // this should be the size of the CPU L1 cache
+const SZ_BASE_BTS: u64 = (1 << 8) * 8;
 static CLUT: [u8; 256] = [
     8, 7, 7, 6, 7, 6, 6, 5, 7, 6, 6, 5, 6, 5, 5, 4, 7, 6, 6, 5, 6, 5, 5, 4, 6, 5, 5, 4, 5, 4, 4, 3,
     7, 6, 6, 5, 6, 5, 5, 4, 6, 5, 5, 4, 5, 4, 4, 3, 6, 5, 5, 4, 5, 4, 4, 3, 5, 4, 4, 3, 4, 3, 3, 2,

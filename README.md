@@ -9,7 +9,7 @@ This is a simple but effective prime number generator. It generates a memoizable
 
 ## Usage
 
-Tweak the ``RANGE`` constant to generate primes up to that number. Compile with
+Tweak the ``RANGE`` constant to generate primes up to that number. Make sure to also set the L1 cache properly, higher values will make the process faster until the L1 cache size is reached (1 << n is 2^n we multiply by 8 to transform bits into Bytes). Beyond that value, time will increase exponentially. Compile with
 
 ```powershell
 cargo build --release

@@ -1,4 +1,5 @@
 use std::cell::RefCell;
+use std::env;
 use std::iter::{empty, once};
 use std::rc::Rc;
 use std::time::Instant;
@@ -196,10 +197,17 @@ fn main() {
     let vrslt = primes_paged().take_while(|&p| p <= n).collect::<Vec<_>>();
     println!("{:?}", vrslt);
 
+    let args: Vec<String> = env::args().collect();
+    let range = if args.len() > 1 {
+        args[1].parse::<u64>().unwrap()
+    } else {
+        RANGE
+    };
+
     let strt = Instant::now();
 
     //	let count = primes_paged().take_while(|&p| p <= RANGE).count(); // slow way to count
-    let count = count_primes_paged(RANGE); // fast way to count
+    let count = count_primes_paged(range); // fast way to count
 
     let elpsd = strt.elapsed();
 
